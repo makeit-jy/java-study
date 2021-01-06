@@ -64,9 +64,7 @@ public static List<Apple> filterApplesByWeight(List<Apple> inventory, int weight
 - **프레디케이트(predicate)**: boolean을 리턴하는 함수형 인터페이스.
 - **전략 디자인 패턴(strategy design pattern)**: 각 알고리즘(전략이라 불리는)을 캡슐화하는 알고리즘 패밀리를 정의해둔 다음에 런타임에 알고리즘을 선택하는 기법.
 
-    ex) 알고리즘 패밀리: ApplePredicate (인터페이스)
-
-    	전략: AppleGreenColorPredicate, AppleHeavyWeightPredicate 
+    ex) 알고리즘 패밀리: ApplePredicate(인터페이스) / 전략: AppleGreenColorPredicate, AppleHeavyWeightPredicate 
 
 - **동작 파라미터화**: 메서드가 다양한 동작(또는 전략)을 받아서 내부적으로 다양한 동작 수행 가능.
 - 동작 파라미터화의 **강점**: 컬렉션 탐색 로직과 각 항목에 적용할 동작 분리 가능.
