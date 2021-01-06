@@ -1,4 +1,4 @@
-# Chapter 2 동작 파라미터화 코드 전달하기
+# Chapter2 동작 파라미터화 코드 전달하기
 
 ---
 
@@ -27,13 +27,13 @@
 
 ```java
 public static List<Apple> filterGreenApples(List<Apple> inventory) {
-		List<Apple> result = new ArrayList<>();
-		for (Apple apple : inventory) {
-				if **("green".equals(apple.getColor())** {
-						result.add(apple);
-				}
+	List<Apple> result = new ArrayList<>();
+	for (Apple apple : inventory) {
+		if ("green".equals(apple.getColor()) {
+				result.add(apple);
 		}
-		return result;
+	}
+	return result;
 }
 ```
 
@@ -45,13 +45,13 @@ public static List<Apple> filterGreenApples(List<Apple> inventory) {
 
 ```java
 public static List<Apple> filterApplesByWeight(List<Apple> inventory, int weight) {
-		List<Apple> result = new ArrayList<>();
-		for (Apple apple : inventory) {
-				if **(apple.getWeight() > weight)** {
-						result.add(apple);
-				}
+	List<Apple> result = new ArrayList<>();
+	for (Apple apple : inventory) {
+		if (apple.getWeight() > weight) {
+				result.add(apple);
 		}
-			return result;
+	}
+	return result;
 }
 ```
 
@@ -66,29 +66,29 @@ public static List<Apple> filterApplesByWeight(List<Apple> inventory, int weight
 
     ex) 알고리즘 패밀리: ApplePredicate (인터페이스)
 
-    전략: AppleGreenColorPredicate, AppleHeavyWeightPredicate 
+    	전략: AppleGreenColorPredicate, AppleHeavyWeightPredicate 
 
 - **동작 파라미터화**: 메서드가 다양한 동작(또는 전략)을 받아서 내부적으로 다양한 동작 수행 가능.
 - 동작 파라미터화의 **강점**: 컬렉션 탐색 로직과 각 항목에 적용할 동작 분리 가능.
 - 유연한 API를 만들려면 동작 파라미터화라는 도구가 반드시 필요하다.
 
 ```java
-public static List<Apple> filterApples(List<Apple> inventory, **ApplePredicate p**) {
-		List<Apple> result = new ArrayList<>();
-		for (Apple apple : inventory) {
-				if **(p.test(apple))** {   // 프레디케이트 객체로 사과 검사 조건을 캡슐화함.
-						result.add(apple);
-				}
+public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) {
+	List<Apple> result = new ArrayList<>();
+	for (Apple apple : inventory) {
+		if (p.test(apple)) {   // 프레디케이트 객체로 사과 검사 조건을 캡슐화함.
+				result.add(apple);
 		}
-		return result;
 	}
+	return result;
+}
 ```
 
 ```java
 public class AppleRedAndHeavyPredicate implements ApplePredicate {
-		public boolean test(Apple apple) {
-				return "red".equals(apple.getColor()) && apple.getWeight() > 150;	
-		}	
+	public boolean test(Apple apple) {
+		return "red".equals(apple.getColor()) && apple.getWeight() > 150;	
+	}	
 }
 
 List<Apple> redAndHeavyApples = filterApples(inventory, new AppleRedAndHeavyPredicate());
@@ -110,17 +110,17 @@ List<Apple> redAndHeavyApples = filterApples(inventory, new AppleRedAndHeavyPred
 
 ```java
 List<Apple> redApples = filterApples(inventory, new ApplePredicate() {
-		public boolean test(Apple a) {
-				return "red".equals(a.getColor());
-		}	
+	public boolean test(Apple a) {
+		return "red".equals(a.getColor());
+	}	
 });
 ```
 
 ```java
 button.setOnAction(new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent event) {
-				System.out.println("Wooo a click!");
-		}
+	public void handle(ActionEvent event) {
+		System.out.println("Wooo a click!");
+	}
 });
 ```
 
@@ -128,7 +128,7 @@ button.setOnAction(new EventHandler<ActionEvent>() {
 
 ```java
 List<Apple> result = 
-		filterApples(inventory, **(Apple apple) -> "red".equals(apple.getColor))**);
+	filterApples(inventory, (Apple apple) -> "red".equals(apple.getColor)));
 ```
 
 람다 표현식을 통해 간결해졌다. 
@@ -147,37 +147,36 @@ List<Apple> result =
 
 ```java
 public interface Predicate<T> {
-		boolean test(T t);
+	boolean test(T t);
 }
 
 public static <T> List<T> filter(List<T> list, Predicate<T> p) {
-		List<T> result = new ArrayList<>();
-		for(T e: list) {
-				if(p.test(e)) {
-						result.add(e);
-				}
+	List<T> result = new ArrayList<>();
+	for(T e: list) {
+		if(p.test(e)) {
+			result.add(e);
 		}
-		return result;
+	}
+	return result;
 }
 ```
 
 ## 2.4 실전 예제
 
-동작 파라미터화 패턴은 동작을 (한 조각의 코드로) 캡슐화한 다음에 메서드로 전달해서 메서
-드의 동작을 파라미터화한다(ex. 사과의 다양한 프레디케이트).
+동작 파라미터화 패턴은 동작을 (한 조각의 코드로) 캡슐화한 다음에 메서드로 전달해서 메서드의 동작을 파라미터화한다 (ex.사과의 다양한 프레디케이트).
 
 ### 2.4.1 Comparator로 정렬하기
 
 ```java
 // java.util.Comparator
 public interface Comparator<T> {
-		public int compare(T o1, T o2);
+	public int compare(T o1, T o2);
 }
 
 inventory.sort(new Comparator<Apple>() {
-		public int compare(Apple a1, Apple a2) {
-				return a1.getWeight().compareTo(a2.getWeight());
-		}
+	public int compare(Apple a1, Apple a2) {
+		return a1.getWeight().compareTo(a2.getWeight());
+	}
 });
 ```
 
@@ -194,13 +193,13 @@ inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()))
 ```java
 // java.lang.Runnable
 public interface Runnable {
-		public void run();
+	public void run();
 }
 
 Thread t = new Thread(new Runnable() {
-		public void run() {
-				System.out.println("Hello world");
-		}
+	public void run() {
+		System.out.println("Hello world");
+	}
 });
 ```
 
@@ -210,16 +209,14 @@ Thread t = new Thread(() -> System.out.println("Hello world"));
 
 ### 2.4.3 GUI 이벤트 처리하기
 
-GUI 프로그래밍에서 마우스 클릭이나 이동 등의 이벤트에 모두 반응할 수 있어야 하기 때문에 
-
-변화에 대응 가능한 유연한 코드가 필요하다.
+GUI 프로그래밍에서 마우스 클릭이나 이동 등의 이벤트에 모두 반응할 수 있어야 하기 때문에 변화에 대응 가능한 유연한 코드가 필요하다.
 
 ```java
 Button button = new Button("Send");
 button.setOnAction(new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent event) {
-				label.setText("Sent!");
-		}
+	public void handle(ActionEvent event) {
+		label.setText("Sent!");
+	}
 });
 ```
 
