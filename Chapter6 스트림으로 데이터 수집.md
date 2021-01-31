@@ -45,7 +45,7 @@ Map<Currency, List<Transaction>> transactionsByCurrencies =
 
 ### 6.1.1 고급 리듀싱 기능을 수행하는 컬렉터
 
-![Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/1____.jpg](Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/1____.jpg)
+![1통화별로 트랜잭션을 그룹화하는 리듀싱 연산](https://user-images.githubusercontent.com/64471645/106386356-e8576880-6417-11eb-9bd9-e007a777c7b4.JPG)
 
 [그림 1] 통화별로 트랜잭션을 그룹화하는 리듀싱 연산
 
@@ -69,7 +69,7 @@ Map<Currency, List<Transaction>> transactionsByCurrencies =
 int totalCalories = menu.stream().collect(summingInt(Dish::getCalories));
 ```
 
-![Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/2summingInt___.jpg](Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/2summingInt___.jpg)
+![2summingInt 컬렉터의 누적 과정](https://user-images.githubusercontent.com/64471645/106386462-661b7400-6418-11eb-8e55-a946984e578f.JPG)
 
 [그림 2] summingInt 컬렉터의 누적 과정
 
@@ -137,7 +137,7 @@ Map<Dish.Type, List<Dish>> dishesByType =
 {FISH=[pawns, salmon], OTHER=[french fries, rice, season fruit, pizza], MEAT=[pork, beef, chicken]}
 ```
 
-![Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/3____.jpg](Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/3____.jpg)
+![3그룹화로 스트림의 항목을 분류하는 과정](https://user-images.githubusercontent.com/64471645/106386483-8c411400-6418-11eb-88d3-b8b32b16f42a.JPG)
 
 [그림 3] 그룹화로 스트림의 항목을 분류하는 과정
 
@@ -186,7 +186,7 @@ Map<Dish.Type, Map<CaloricLevel, List<Dish>>> dishesByTypeCaloricLevel =
 - 외부 맵의 값은 두 번째 수준의 분류 함수의 기준 'normal, diet, fat'을 키 값으로 갖는다.
 - 최종적으로 두 수준의 맵은 첫 번째 키와 두 번째 키의 기준에 부합하는 요소 리스트 값으로 갖는다.
 
-![Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/4n___n_.jpg](Chapter%206%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%B8%2020961862e2ac4ec59c9d5fa5f7fcd8cc/4n___n_.jpg)
+![4n수준 중첩 맵과 n차원 분류표](https://user-images.githubusercontent.com/64471645/106386508-a4b12e80-6418-11eb-9b8f-a30ac38f5efc.JPG)
 
 [그림 4] n수준 중첩 맵과 n차원 분류표
 
