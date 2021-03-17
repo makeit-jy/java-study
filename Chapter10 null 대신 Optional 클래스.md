@@ -95,7 +95,7 @@ public String getCarInsuranceName(Person person) {
 
     예) null 사용 시, 차를 소유하고 있지 않은 Person 클래스의 car 변수는 null을 가져야 함.
 
-    ![Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/1Optional_Car.jpg](Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/1Optional_Car.jpg)
+    ![1Optional Car](https://user-images.githubusercontent.com/64471645/111443115-682d5e00-874c-11eb-9b5d-d985a9bcd0d5.JPG)
 
 - 값이 있다면 Optional 클래스는 값을 감싸고, 값이 없으면 Optional.empty 메서드로 Optional을 반환.
 - Optional.empty는 Optional의 특별한 싱글턴 인스턴스를 반환하는 정적 팩토리 메서드
@@ -161,7 +161,7 @@ Optional<String> name = optInsurance.map(Insurance::getName);
 */
 ```
 
-![Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/2_Optional_map__.jpg](Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/2_Optional_map__.jpg)
+![2스트림과 Optional의 map 메서드 비교](https://user-images.githubusercontent.com/64471645/111443342-a0cd3780-874c-11eb-9de3-8d2e04d61f67.JPG)
 
 ### 3.3) flatMap으로 Optional 객체 연결
 
@@ -181,9 +181,9 @@ Optional<String> name = optPerson
 */
 ```
 
-![Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/3Optional.jpg](Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/3Optional.jpg)
+![3이차원Optional](https://user-images.githubusercontent.com/64471645/111443450-b9d5e880-874c-11eb-9687-884cb8f5ed44.JPG)
 
-![Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/4_Optional_flatMap__.jpg](Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/4_Optional_flatMap__.jpg)
+![4스트림과 Optional의 flatMap 메서드 비교](https://user-images.githubusercontent.com/64471645/111443493-c78b6e00-874c-11eb-929c-5bc91713abb6.JPG)
 
 - Optional로 자동차의 보험회사 이름 찾기
 
@@ -203,7 +203,7 @@ public String getCarInsuranceName(Optional<Person> person) {
 
 - Optional을 이용한 Person/Car/Insurance 참조 체인
 
-![Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/5Optional__PersonCarInsurance__.jpg](Chapter%2010%20null%20%E1%84%83%E1%85%A2%E1%84%89%E1%85%B5%E1%86%AB%20Optional%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%84%89%E1%85%B3%2003e92cd286824595a62178416264216a/5Optional__PersonCarInsurance__.jpg)
+![5Optional을 활용한 Person,Car,Insurance 참조 체인](https://user-images.githubusercontent.com/64471645/111443560-d83be400-874c-11eb-804d-68e809ab44ee.JPG)
 
 - 파이프라인 연산
     - flatMap을 이용한 평준화 (두 Optional을 합치는 기능을 수행하면서 둘 중 하나라도 null이면 빈 Optional을 생성하는 연산)
