@@ -34,35 +34,35 @@
     class ScalaExam {
       object Beer {
         def main(arg : Array[String]) {
-        // 명령형 스칼라
+           // 명령형 스칼라
           var n : Int = 2;
           while( n <= 6) {
             println(s"Hello ${n} bottles of beer") // 문자열 보간법 
             n += 1
           }
 
-        // 함수형 스칼라
+          // 함수형 스칼라
           // 2 ~ 6 foreach (n)
           2 to 6 foreach { n => println(s"Hello ${n} bottles of beer")}
 
-        // 컬렉션 만들기
+          // 컬렉션 만들기
           // Map<String, Int>
           val authorsToAge = Map("Raoul" -> 23, "Mario" -> 40, "Alan" -> 53); // ->로 키를 값에 대응시켜 맵 만들기
 
-   	    // 리스트(단반향 연결 리스트)
+   	      // 리스트(단반향 연결 리스트)
           // List<String>
           val authors = List("Raoul", "InWoo", "Alan")
 
-       // 집합(중복된 요소가 없는)
+          // 집합(중복된 요소가 없는)
           // Set<Int>
           val numbers = Set(1, 1, 2, 3, 4) // 4개의 요소를 포함
           // numbers 요소와 8 요소를 포함한 새로운 Set 생성
           val newNumbers = numbers + 8
 
-        // 컬렉션은 기본적으로 불변(immutable). 갱신할 때는 19장의 영속이라는 용어 스칼라에도 적용 가능. 
-        // -> 결과적으로 암묵적인 데이터 의존성을 줄일 수 있다. -> 언제, 어디서 컬렉션(또는 다른 공유된 자료구조 등)을 갱신했는지 크게 신경 쓰지 않아도 된다.
+          // 컬렉션은 기본적으로 불변(immutable). 갱신할 때는 19장의 영속이라는 용어 스칼라에도 적용 가능. 
+          // -> 결과적으로 암묵적인 데이터 의존성을 줄일 수 있다. -> 언제, 어디서 컬렉션(또는 다른 공유된 자료구조 등)을 갱신했는지 크게 신경 쓰지 않아도 된다.
 
-        // 컬렉션 사용하기
+          // 컬렉션 사용하기
           // filter : 길이가 10 이상인 행만 선택한다.
           // Map : 긴 행을 대문자로 변환한다.
           val fileLines = Source.fromFile("data.txt").getLines().toList
@@ -72,17 +72,17 @@
           // 자바의 병렬 비슷한 기능 In Scala
           val linesLongUpper2 = fileLines.par filter (_.length() > 10) map(_.toUpperCase())
 
-        // 튜플
-        val raoul = ("Raoul", "+44 887007007") // 튜플 축약어
-        val book = (2018, "Modern Java in Action", "Manning") // (Int, String, String)형식의 튜플
+          // 튜플
+          val raoul = ("Raoul", "+44 887007007") // 튜플 축약어
+          val book = (2018, "Modern Java in Action", "Manning") // (Int, String, String)형식의 튜플
 
-        // 스트림
-        // 게으른 평가 제공. 스칼라의 스트림은 이전 요소가 접근할 수 있도록 기존 계산값을 기억. 
-        // but, 이전 요소를 기억(캐시)해야 하기 때문에 자바의 스트림에 비해 메모리 효율성이 조금 떨어짐.
+          // 스트림
+          // 게으른 평가 제공. 스칼라의 스트림은 이전 요소가 접근할 수 있도록 기존 계산값을 기억. 
+          // but, 이전 요소를 기억(캐시)해야 하기 때문에 자바의 스트림에 비해 메모리 효율성이 조금 떨어짐.
 
-        // 옵션
+          // 옵션
           // option == java.optional 과 같은 기능
-        // 사람의 나이가 최소 나이보다 클 때 보험회사 이름을 반환하는 코드      
+          // 사람의 나이가 최소 나이보다 클 때 보험회사 이름을 반환하는 코드      
           def getCarInsuranceName(person: Option[person], minAge: Int) =
               person.filter(_.getAge() >= minAge)
               .flatMap(_.getCar)
